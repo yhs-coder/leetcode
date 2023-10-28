@@ -1,5 +1,5 @@
 /**
- *leetcode面试题 02.04. 分割链表
+ leetcode面试题 02.04. 分割链表
  source : https://leetcode.cn/problems/partition-list-lcci
  **/
 /**
