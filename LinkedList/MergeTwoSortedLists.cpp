@@ -13,6 +13,7 @@ source: https://leetcode.cn/problems/merge-two-sorted-lists
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
 
+
 example:
 list1   1 2 null
 list2   1 3 4 null
