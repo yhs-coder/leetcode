@@ -23,7 +23,7 @@ public:
 
        // 时间复杂度：O(n)
        // 空间复杂度：O(1) 
-        //方法二：快慢指针法（第一种写法）
+       //方法二：快慢指针法（第一种写法）
         /*
         int fastIndex = 0;
         int slowIndex = 0;
@@ -35,41 +35,40 @@ public:
             }
             fastIndex++;
         }
-        return slowIndex;
-    
+        return slowIndex; 
     */
 
     //快慢指针法（第二种写法）
    
    /*
-    int slowIndex = 0;
-    for (int fastIndex = 0; fastIndex < nums.size();fastIndex++) {
-        if (val != nums[fastIndex]) {
-            nums[slowIndex++] = nums[fastIndex];
+        int slowIndex = 0;
+        for (int fastIndex = 0; fastIndex < nums.size();fastIndex++) {
+            if (val != nums[fastIndex]) {
+                nums[slowIndex++] = nums[fastIndex];
+            }
         }
-    }
-    return slowIndex;
+        return slowIndex;
     */
 
 
     //方法三：相向双指针方法
-    int leftIndex = 0;
-    int rightIndex = nums.size() - 1;
-    while (leftIndex <= rightIndex) {
-        //左指针一直向右移动，直到找到val的元素才停止
-        // 找左边等于val的元素
-        while (leftIndex <= rightIndex && nums[leftIndex] != val) {
-            leftIndex++;
+        int leftIndex = 0;
+        int rightIndex = nums.size() - 1;
+        while (leftIndex <= rightIndex) {
+            //左指针一直向右移动，直到找到val的元素才停止
+            // 找左边等于val的元素
+            while (leftIndex <= rightIndex && nums[leftIndex] != val) {
+                leftIndex++;
+            }
+            // 找右边不等于val的元素
+            //当左指针停止后，右指针开始向左移动，直到找到非val的元素
+            while (rightIndex >= leftIndex && nums[rightIndex] == val) {
+                rightIndex--;
+            }
+             // 将右边不等于val的元素覆盖左边等于val的元素
+            nums[leftIndex++] = nums[rightIndex--];
         }
-        // 找右边不等于val的元素
-        //当左指针停止后，右指针开始向左移动，直到找到非val的元素
-        while (rightIndex >= leftIndex && nums[rightIndex] == val) {
-            rightIndex--;
-        }
-         // 将右边不等于val的元素覆盖左边等于val的元素
-        nums[leftIndex++] = nums[rightIndex--];
-    }
-    return leftIndex;
+        return leftIndex;
 
 
 
